@@ -1,3 +1,4 @@
+/** Displays the pokemon on the screen */
 async function DisplayPokemon(){
     var id = document.querySelector('#pokemon_id');
         
@@ -8,6 +9,10 @@ async function DisplayPokemon(){
     id.value = pokemon['forms'][0]['name'].toUpperCase();
 }
 
+/**
+ * Searches the pokeapi.co api for the specified pokemon
+ * @param {The id or name of the pokemon to get} id 
+ */
 async function GetPokemonById(id){
 
     if (!id) id = 1;
