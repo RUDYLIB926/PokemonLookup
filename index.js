@@ -7,6 +7,48 @@ async function DisplayPokemon(){
 
     display.src = pokemon['sprites']['front_shiny'];
     id.value = pokemon['forms'][0]['name'].toUpperCase();
+
+    DisplayStats(pokemon);
+}
+
+/** Displays the stats of the pokemon on the screen */
+function DisplayStats(pokemon){
+    let types = document.querySelector('#types');
+    let abilities = document.querySelector('#abilities');
+    let attack = document.querySelector('#stats_attack');
+    let defense = document.querySelector('#stats_defense');
+    let special_attack = document.querySelector('#stats_special_attack');
+    let special_defense = document.querySelector('#stats_special_defense');
+    let speed = document.querySelector('#stats_speed');
+    let hp = document.querySelector('#stats_hp');
+
+    types.value = '';
+    pokemon['types'].forEach(function(type){
+        types.value += type['type']['name'] + ", ";
+    });
+
+    abilities.value = '';
+    pokemon['abilities'].forEach(function(ability){
+        abilities.value += ability['ability']['name'] + ", ";
+    });
+
+    var hp_stat = pokemon['stats'].filter(s => s['stat']['name'] == 'hp')[0];
+    hp.value = hp_stat['base_stat']
+
+    var attack_stat = pokemon['stats'].filter(s => s['stat']['name'] == 'attack')[0];
+    attack.value = attack_stat['base_stat']
+
+    var defense_stat = pokemon['stats'].filter(s => s['stat']['name'] == 'defense')[0];
+    defense.value = defense_stat['base_stat']
+
+    var special_attack_stat = pokemon['stats'].filter(s => s['stat']['name'] == 'special-attack')[0];
+    special_attack.value = special_attack_stat['base_stat']
+
+    var special_defense_stat = pokemon['stats'].filter(s => s['stat']['name'] == 'special-defense')[0];
+    special_defense.value = special_defense_stat['base_stat']
+
+    var speed_stat = pokemon['stats'].filter(s => s['stat']['name'] == 'speed')[0];
+    speed.value = speed_stat['base_stat']
 }
 
 /**
