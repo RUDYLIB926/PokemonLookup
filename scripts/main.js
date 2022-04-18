@@ -23,8 +23,14 @@ function DisplayStats(pokemon){
     let hp = document.querySelector('#stats_hp');
 
     types.value = '';
+    var numberOfTypes = 1;
     pokemon['types'].forEach(function(type){
-        types.value += type['type']['name'] + ", ";
+        if (numberOfTypes == pokemon['types'].length){
+            types.value += type['type']['name'];
+        } else{
+            types.value += type['type']['name'] + "/";
+            numberOfTypes++;
+        }
     });
 
     abilities.value = '';

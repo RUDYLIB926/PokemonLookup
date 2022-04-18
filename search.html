@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8>
+  <title>Poke Search</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/quartz/bootstrap.min.css" integrity="sha512-k7BnoxK4uQKh1/VO7v9sOE/Kw7S6q4KnhDN/HpVqDXAaqUgBoD4Sir7ba/mcVGmT0p6MRi7KPGDaN53tPACnww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Pokemon Lookup</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link active" href="./search.html" aria-current="page">Search</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="container p-2">
+  <div class="row justify-content-center">
+    <div class="col align-center">
+      <div class="card border-dark">
+        <div class="card-header text-white bg-dark">
+          <h2 class="card-title">Search for Pokemon</h2>
+        </div>
+        <div class="card-body text-white bg-secondary">
+          <div class=" row justify-content-center">
+            <div class="col-6">
+              <form>
+                <div class="form-group m-2">
+                  <label class="form-label">Name:</label>
+                  <input class="form-control" id="pokemon_id">
+                </div>
+                <div class="row m-3">
+                  <button class="btn btn-primary" id="search">Search</button>
+                </div>
+                <div class="row justify-content-center m-2">
+                  <img id="pokemon_display" src="" class="card-img-bottom img-thumbnail" alt="Pokemon image">
+                </div>
+              </form>
+            </div>
+            <div class="col-3 align-self-center">
+              <form>
+                <fieldset disabled>
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Types</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" id="types"/>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Abilities</label>
+                    <div class="col-sm-8">
+                      <textarea class="form-control" id="abilities">
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label offset-5">HP</label>
+                    <div class="col-sm-3">
+                      <input class="form-control" id="stats_hp">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label offset-5">Attack</label>
+                    <div class="col-sm-3">
+                      <input class="form-control" id="stats_attack">
+                    </div>                  
+                  </div>
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label offset-5">Defense</label>
+                    <div class="col-sm-3">
+                      <input class="form-control" id="stats_defense">
+                    </div>                  
+                  </div>
+                  <div class="row mb-3 mt-1">
+                    <label class="col-sm-4 col-form-label offset-5">Special Attack</label>
+                    <div class="col-sm-3">
+                      <input class="form-control" id="stats_special_attack">
+                    </div>                  
+                  </div>
+                  <div class="row mb-3 mt-1">
+                    <label class="col-sm-4 col-form-label offset-5">Special Defense</label>
+                    <div class="col-sm-3">
+                      <input class="form-control" id="stats_special_defense">
+                    </div>                  
+                  </div>
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label offset-5">Speed</label>
+                    <div class="col-sm-3">
+                      <input class="form-control" id="stats_speed">
+                    </div>                  
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="scripts/main.js"></script>
+</html>
