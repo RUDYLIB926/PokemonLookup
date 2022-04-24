@@ -1,3 +1,17 @@
+/** document ready event */
+document.addEventListener('readystatechange', async (event) => {
+    event.preventDefault();
+    if (document.readyState == 'complete'){
+        await DisplayPokemon();
+    }
+});
+
+/** Search for pokemon event */
+document.querySelector('#search').addEventListener('click', async (event) => {
+    event.preventDefault();
+    await DisplayPokemon();
+});
+
 /** Displays the pokemon on the screen */
 async function DisplayPokemon(){
     let id = document.querySelector('#pokemon_id');
@@ -9,6 +23,23 @@ async function DisplayPokemon(){
     id.value = pokemon['forms'][0]['name'].toUpperCase();
 
     DisplayStats(pokemon);
+}
+
+/**
+ * Searches the pokeapi.co api for the specified pokemon
+ * @param {The id or name of the pokemon to get} id 
+ */
+async function GetPokemonById(id){
+    if (!id) id = 1;
+
+    let url = `https://pokeapi.co/api/v2/pokemon/${id}/`
+    let pokeapiResponse = await fetch(url);
+
+    if (pokeapiResponse.ok) { // if HTTP-status is 200-299
+        return await pokeapiResponse.json();
+    } else {
+        alert("HTTP-Error: " + pokeapiResponse.status);
+    }
 }
 
 /** Displays the stats of the pokemon on the screen */
@@ -85,36 +116,4 @@ function DisplayStats(pokemon){
         speed.value = speed_stat['base_stat'];
         console.log("Speed: " + speed.value);
     }
-    
 }
-
-/**
- * Searches the pokeapi.co api for the specified pokemon
- * @param {The id or name of the pokemon to get} id 
- */
-async function GetPokemonById(id){
-    if (!id) id = 1;
-
-    let url = `https://pokeapi.co/api/v2/pokemon/${id}/`
-    let pokeapiResponse = await fetch(url);
-
-    if (pokeapiResponse.ok) { // if HTTP-status is 200-299
-        return await pokeapiResponse.json();
-    } else {
-        alert("HTTP-Error: " + pokeapiResponse.status);
-    }
-}
-
-/** document ready event */
-document.addEventListener('readystatechange', async (event) => {
-    event.preventDefault();
-    if (document.readyState == 'complete'){
-        await DisplayPokemon();
-    }
-});
-
-/** Search for pokemon event */
-document.querySelector('#search').addEventListener('click', async (event) => {
-    event.preventDefault();
-    await DisplayPokemon();
-});
